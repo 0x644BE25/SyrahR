@@ -53,8 +53,12 @@ correct_barcodes(whitelist="coordinates_file.tsv_whitelist.txt", r1_fastq="read1
 ```
 This will output a corrected read 1 FASTQ with the same name as the original read 1 FASTQ but with `.r1syrah` appended. This FASTQ has the same reads in the same order as the original read 1 FASTQ, such that it is still a proper pair with the original read 2 FASTQ. It can now be used as input to your analysis pipeline of choice, such as the [WARP Slide-seq pipeline](https://broadinstitute.github.io/warp/docs/Pipelines/SlideSeq_Pipeline/README) which is also available for use in the cloud via [Terra](https://app.terra.bio/) at the [Slide-seq public workspace](https://app.terra.bio/#workspaces/warp-pipelines/Slide-seq). 
 
-<img width="456" height="300" alt="image" src="https://github.com/user-attachments/assets/9743559f-1fe3-4cdb-80ee-4047e6ee0b96" />
+</details>
 
+<details>
+  
+  <summary> Parameters </summary>
+  
 ## Parameters
 
 | Parameter name      | Description                                                                                                                                                                                                                                                                    | Example                                    |
