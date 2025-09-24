@@ -24,19 +24,10 @@ syrah(coords_file="coodinates_file.tsv", r1_fastq="read1_file.fastq")
 SyrahR will output a bead deduplication map text file, a barcode whitelist file, and a corrected read 1 FASTQ with a filename ending in `.r1syrah`
 This corrected read 1 FASTQ can now be input into your spatial transcriptomic pipeline of choice along with the original read 2 FASTQ and coordinates file.
 
-<pre>
 
-
-
-
-
-
-  
-  
-</pre>
 <details>
   
-<summary>Advanced Usage</summary>
+<summary>##Advanced Usage</summary>
 
 Syrah has three steps, and the `Syrah()` function is simply a wrapper for them. The steps can be run independently, if desired. This may be useful if you wish to use the same barcode whitelist for several read 1 FASTQs from the same puck or tile, such as if you have multiple lanes of the same library on a flowcell.
 
