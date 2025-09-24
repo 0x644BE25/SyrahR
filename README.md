@@ -28,6 +28,10 @@ This corrected read 1 FASTQ can now be input into your spatial transcriptomic pi
 
 
 
+
+
+
+  
   
 </pre>
 
