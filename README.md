@@ -17,7 +17,7 @@ SyrahR takes as input the tab-delimited bead coordinates file and the read 1 FAS
 ## Basic Usage
 ```
 library(SyrahR)
-syrah(coords_file="coodinates_file.txt", r1_fastq="read1_file.fastq")
+syrah(coords_file="coodinates_file.tsv", r1_fastq="read1_file.fastq")
 ```
 
 ## Output
@@ -25,7 +25,30 @@ SyrahR will output a bead deduplication map text file, a barcode whitelist file,
 This corrected read 1 FASTQ can now be input into your spatial transcriptomic pipeline of choice along with the original read 2 FASTQ and coordinates file.
 
 ## Advanced Usage
-<img width="878" height="578" alt="image" src="https://github.com/user-attachments/assets/9743559f-1fe3-4cdb-80ee-4047e6ee0b96" />
+Syrah has three steps, and the `Syrah()` function is simply a wrapper for them. The steps can be run independently, if desired. This may be useful if you wish to use the same barcode whitelist for several read 1 FASTQs from the same puck or tile, such as if you have multiple lanes of the same library on a flowcell.
+
+#### Step 1: Barcode deduplication
+This step uses the barcode file to find beads with impossibly close x,y distance and barcodes one nucleotide apart. These groups of beads are virtual duplications, so Syrah reroutes all barcodes in the group to a single one.
+```
+make_bead_dedup_map(coords_file="coodinates_file.tsv")
+```
+This will output a text file of the deduplication mapping with the same name as the coordinates file but with `_dedup_map.txt` appended.
+
+#### Step 2: Barcode whitelist generation
+This step uses the barcode file and deduplication map (from the previous step) to generate a whitelist of all acceptable barcode matches. This whitelist automatically redirects duplicated beads when matching.
+```
+make_barcode_whitelist(dedup_map="coordinates_file.tsv_dedup_map.txt", coods_file="coordinates_file.tsv")
+```
+This will output a text file of the barcode matching whitelist with the same name as the coordinates file but with `_whitelist.txt` appended.
+
+#### Step 3: Barcode correction
+This step uses the barcode whitelist (from the previous step) and the read 1 FASTQ to generate a corrected read 1 FASTQ.
+```
+correct_barcodes(whitelist="coordinates_file.tsv_whitelist.txt", r1_fastq="read1_file.fastq")
+```
+This will output a corrected read 1 FASTQ with the same name as the original read 1 FASTQ but with `.r1syrah` appended. This FASTQ has the same reads in the same order as the original read 1 FASTQ, such that it is still a proper pair with the original read 2 FASTQ. It can now be used as input to your analysis pipeline of choice, such as the [WARP Slide-seq pipeline](https://broadinstitute.github.io/warp/docs/Pipelines/SlideSeq_Pipeline/README) which is also available for use in the cloud via [Terra](https://app.terra.bio/) at the [Slide-seq public workspace](https://app.terra.bio/#workspaces/warp-pipelines/Slide-seq). 
+
+<img width="456" height="300" alt="image" src="https://github.com/user-attachments/assets/9743559f-1fe3-4cdb-80ee-4047e6ee0b96" />
 
 ## Parameters
 
