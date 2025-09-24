@@ -72,3 +72,12 @@ This will output a corrected read 1 FASTQ with the same name as the original rea
 | `batch_size`          | (optional) Number of reads to process at once.  You are very unlikely to need to change this. Defaults to 10^5. | `10^5`  | 
 
 </details>
+
+<details>
+<summary> Test data</summary>
+  
+## Test data
+
+Official [Curio Seeker test data](https://curioseekerbioinformatics.s3.us-west-1.amazonaws.com/TestDatasets/example_input_mouse_spleen_1M.tar.gz) contains both FASTQ files and the bead coordinate file.
+
+</details>
