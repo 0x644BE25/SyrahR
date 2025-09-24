@@ -34,8 +34,9 @@ This corrected read 1 FASTQ can now be input into your spatial transcriptomic pi
   
   
 </pre>
+<details>
+  <summary>Advanced Usage</summary>
 
-## Advanced Usage
 Syrah has three steps, and the `Syrah()` function is simply a wrapper for them. The steps can be run independently, if desired. This may be useful if you wish to use the same barcode whitelist for several read 1 FASTQs from the same puck or tile, such as if you have multiple lanes of the same library on a flowcell.
 
 #### Step 1: Barcode deduplication
@@ -72,3 +73,4 @@ This will output a corrected read 1 FASTQ with the same name as the original rea
 | `max_slide_dist`          | (optional) Maxium allowable slide distance between beads to consider them duplicated. You are very unlikely to need to change this. Defaults to 10. | `10`  |
 | `max_linker_dels`          | (optional) Maximum allowable number of deletions for an acceptable linker match. You are unlikely to need to change this. Defaults to 5. | `5`  |
 | `batch_size`          | (optional) Number of reads to process at once.  You are very unlikely to need to change this. Defaults to 10^5. | `10^5`  | 
+</details>
