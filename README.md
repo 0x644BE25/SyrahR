@@ -27,8 +27,9 @@ This corrected read 1 FASTQ can now be input into your spatial transcriptomic pi
 
 <details>
   
-<summary>## Advanced Usage</summary>
+<summary>Advanced Usage</summary>
 
+## Advanced Usage
 Syrah has three steps, and the `Syrah()` function is simply a wrapper for them. The steps can be run independently, if desired. This may be useful if you wish to use the same barcode whitelist for several read 1 FASTQs from the same puck or tile, such as if you have multiple lanes of the same library on a flowcell.
 
 #### Step 1: Barcode deduplication
