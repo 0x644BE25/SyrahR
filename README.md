@@ -10,6 +10,7 @@ library(devtools)
 install_github("0x644BE25/SyrahR")
 ```
 
+
 ## Inputs
 SyrahR takes as input the tab-delimited bead coordinates file and the read 1 FASTQ file.
 
@@ -21,6 +22,10 @@ syrah(coords_file="coodinates_file.txt", r1_fastq="read1_file.fastq")
 
 ## Output
 SyrahR will output a bead deduplication map text file, a barcode whitelist file, and a corrected read 1 FASTQ with a filename ending in `.r1syrah`
+This corrected read 1 FASTQ can now be input into your spatial transcriptomic pipeline of choice along with the original read 2 FASTQ and coordinates file.
+
+## Advanced Usage
+<img width="878" height="578" alt="image" src="https://github.com/user-attachments/assets/9743559f-1fe3-4cdb-80ee-4047e6ee0b96" />
 
 ## Parameters
 
